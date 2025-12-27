@@ -5,73 +5,28 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Galería con Animaciones</title>
 
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #111;
-            color: white;
-        }
-
-        h1 {
-            text-align: center;
-            padding: 30px 0;
-        }
-
-        .container {
-            width: 90%;
-            margin: auto;
-        }
-
-        .image-box {
-            margin: 60px 0;
-            opacity: 0;
-            transform: translateY(50px);
-            transition: all 1s ease;
-        }
-
-        .image-box.show {
-            opacity: 1;
-            transform: translateY(0);
-        }
-
-        img {
-            width: 100%;
-            border-radius: 12px;
-        }
-    </style>
+    <!-- Enlace al CSS -->
+    <link rel="stylesheet" href="css/estilos.css">
 </head>
 <body>
 
 <h1>Mi Página Animada</h1>
 
 <div class="image-box">
-    <img src="imagenes/playa.jpg">
+    <img src="imagenes/playa.jpg" alt="Playa">
 </div>
 
 <div class="image-box">
-    <img src="imagenes/parque.jpg">
+    <img src="imagenes/parque.jpg" alt="Parque">
 </div>
 
 <div class="image-box">
-    <img src="imagenes/apartamento.jpg">
+    <img src="imagenes/apartamento.jpg" alt="Apartamento">
 </div>
 
-<script>
-    const images = document.querySelectorAll('.image-box');
-
-    const observer = new IntersectionObserver(entries => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('show');
-            }
-        });
-    }, {
-        threshold: 0.2
-    });
-
-    images.forEach(img => observer.observe(img));
-</script>
+<!-- Enlace al JavaScript -->
+<script src="js/animaciones.js"></script>
 
 </body>
 </html>
+
