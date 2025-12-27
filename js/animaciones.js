@@ -1,15 +1,24 @@
-const images = document.querySelectorAll('.image-box');
+const sections = document.querySelectorAll('.section');
 
 const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry, index) => {
+    entries.forEach(entry => {
         if (entry.isIntersecting) {
-            entry.target.style.transitionDelay = `${index * 0.15}s`;
-            entry.target.classList.add('show');
+            const image = entry.target.querySelector('.image-box');
+            const text = entry.target.querySelector('.description');
+
+            // Aparece la imagen
+            image.classList.add('show');
+
+            // Aparece el texto después
+            setTimeout(() => {
+                text.classList.add('show');
+            }, 600);
+
             observer.unobserve(entry.target);
         }
     });
 }, {
-    threshold: 0.25
+    threshold: 0.4
 });
 
-images.forEach(img => observer.observe(img));
+sections.forEach(section => observer.observe(section));
